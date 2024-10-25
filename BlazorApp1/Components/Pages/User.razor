@@ -1,0 +1,69 @@
+﻿@page "/user"
+@rendermode InteractiveServer
+@using BlazorApp1.Services;
+<PageTitle>Counter</PageTitle>
+
+<button id="btnuser" @onclick=IncrementCount style="@visibility"> show</button>
+
+@if (products != null)
+{
+    <table class="table">
+
+        <thead>
+            <tr>
+
+                <th>name</th>
+                <th>description</th>
+                <th>price</th>
+                <th>category</th>
+                <th>stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+
+
+                    <td>@product.name</td>
+                    <td>@product.description</td>
+                    <td>@product.price</td>
+                    <td>@product.category</td>
+                    <td>@product.stock</td>
+                    <td><button><i class="fa-solid fa-cart-shopping"></i></button></td>
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+
+
+
+
+
+
+@code {
+    private string visibility = "visibility:visible;";
+    private int currentCount = 0;
+    ProductService productService = new ProductService();
+    List<Product> products;
+
+    String productName, productId;
+    private void IncrementCount()
+    {
+
+
+        products = productService.ReadProducts("file.xml");
+
+        visibility = "visibility: hidden;";
+
+
+
+    }
+
+
+
+
+}

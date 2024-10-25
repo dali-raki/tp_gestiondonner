@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Users>
+	<User>
+		<id>1</id>
+		<Email>john.doe@example.com</Email>
+		<Password>password123</Password>
+		<Role>1</Role>
+	</User>
+	<User>
+		<id>2</id>
+		<Email>jane.smith@example.com</Email>
+		<Password>securepassword</Password>
+		<Role>2</Role>
+	</User>
+	<User>
+		<id>3</id>
+		<Email></Email>
+		<Password></Password>
+		<Role>1</Role>
+	</User>
+</Users>
+

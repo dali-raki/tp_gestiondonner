@@ -1,18 +1,69 @@
 ﻿@page "/"
-
+@using BlazorApp1.Services;
+@rendermode InteractiveServer
 
 <section class="login-page">
+	<form class="loginform">
+	
+		<input type="email" @bind="email" placeholder="Email" required />
+	
+		<input type="password" @bind="pass" placeholder="Password" required />
 
-    <form class="loginform" action="/Login/Login" method="post">
+		<button type="button" @onclick="OnSubmit">Login</button>
+	</form>
 
-        <input type="email" name="username" placeholder="Email" required value="daliraki19@gmail.com" />
-        <input type="password" name="password" placeholder="Password" required value="JEyO96Rls5F7dzEM" />
-
-
-
-        <button type="submit">Login</button>
-
-
-    </form>
 
 </section>
+
+
+@code {
+	private string email { get; set; } = string.Empty;
+	private string pass { get; set; } = string.Empty;
+	private string role { get; set; } = "1";
+	private bool testlog;
+	@inject NavigationManager NavManager
+	UsersService usersService = new UsersService();
+
+
+	private void OnSubmit()
+	{
+		bool result = testlogin();
+
+		if (result)
+		{
+			Console.WriteLine("successful!");
+
+			string resultrole = usersService.getrole("Users.xml", email, pass);
+
+			if (resultrole == "1")
+			{
+				NavManager.NavigateTo("/user");
+			}
+
+			if (resultrole == "2")
+			{
+				NavManager.NavigateTo("/Error");
+			}
+		}
+		else
+		{
+			Console.WriteLine("Failed!");
+		}
+	}
+
+	private bool testlogin()
+	{
+
+
+		return usersService.Checkuser("Users.xml", email, pass);
+	}
+
+
+
+
+
+
+
+
+
+}
