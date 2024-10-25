@@ -19,7 +19,6 @@
 @code {
 	private string email { get; set; } = string.Empty;
 	private string pass { get; set; } = string.Empty;
-	private string role { get; set; } = "1";
 	private bool testlog;
 	@inject NavigationManager NavManager
 	UsersService usersService = new UsersService();
@@ -42,7 +41,7 @@
 
 			if (resultrole == "2")
 			{
-				NavManager.NavigateTo("/Error");
+				NavManager.NavigateTo("/Counter");
 			}
 		}
 		else
