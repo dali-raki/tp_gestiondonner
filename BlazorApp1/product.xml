@@ -40,12 +40,12 @@
     <category>Security</category>
     <stock>10</stock>
   </product>
-  <product>
-    <id>6</id>
-    <name>realme</name>
-    <description>phone</description>
-    <price>1000</price>
-    <category>electonice</category>
-    <stock>10</stock>
-  </product>
+	<product>
+		<id>6</id>
+		<name>realme</name>
+		<description>phone</description>
+		<price>1000</price>
+		<category>electonice</category>
+		<stock>10</stock>
+	</product>
 </products>

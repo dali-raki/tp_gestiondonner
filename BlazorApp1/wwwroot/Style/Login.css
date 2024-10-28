@@ -43,3 +43,13 @@
         border: none;
         font-size: 1.1rem;
     }
+
+    .btn-1{
+        background-color:red;
+        color:white;
+    }
+
+.btn-2{
+    background-color: white;
+    color: red;
+}
